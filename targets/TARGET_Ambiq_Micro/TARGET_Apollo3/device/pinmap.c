@@ -41,7 +41,7 @@ void pinmap_config(PinName pin, const PinMap *map)
     // fully configure a pin by a pin map entry
     if (pin == NC) {
         return;
-    }
+    }	
 
     am_hal_gpio_pincfg_t pincfg;
     while (map->pin != NC) {
@@ -57,6 +57,9 @@ void pinmap_config(PinName pin, const PinMap *map)
 
 void pin_function(PinName pin, int function)
 {
+	if (pin == NC) {
+        return;
+    }
     // am_hal_gpio_pincfg_t cfg = {0};
     // cfg.uFuncSel = function;
     // am_hal_gpio_pinconfig((uint32_t)(pin), cfg); // apply configuration
@@ -108,6 +111,10 @@ void pin_function(PinName pin, int function)
 
 void pin_mode(PinName pin, PinMode mode)
 {
+	if (pin == NC) {
+        return;
+    }
+	
     MBED_ASSERT(0);
     // gpio_t obj = {
     //     .pad = (ap3_gpio_pad_t)pin,
