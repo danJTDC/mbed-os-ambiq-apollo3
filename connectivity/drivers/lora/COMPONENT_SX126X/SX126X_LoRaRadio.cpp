@@ -94,8 +94,8 @@ SX126X_LoRaRadio::SX126X_LoRaRadio(PinName mosi,
                                    PinName reset,
                                    PinName dio1,
                                    PinName busy,
-                                   PinName freq_select,
-                                   PinName device_select,
+                                   //PinName freq_select,
+                                   //PinName device_select,
                                    PinName crystal_select,
                                    PinName ant_switch)
     : _spi(mosi, miso, sclk),
@@ -103,8 +103,8 @@ SX126X_LoRaRadio::SX126X_LoRaRadio(PinName mosi,
       _reset_ctl(reset),
       _dio1_ctl(dio1, PullNone),
       _busy(busy, PullNone),
-      _freq_select(freq_select),
-      _dev_select(device_select),
+      //_freq_select(freq_select),
+      //_dev_select(device_select),
       _crystal_select(crystal_select, PullDown),
       _ant_switch(ant_switch, PIN_INPUT, PullUp, 0)
 #ifdef MBED_CONF_RTOS_PRESENT
@@ -404,7 +404,7 @@ void SX126X_LoRaRadio::init_radio(radio_events_t *events)
     // attach DIO1 interrupt line to its respective ISR
     _dio1_ctl.rise(callback(this, &SX126X_LoRaRadio::dio1_irq_isr));
 
-    uint8_t freq_support = get_frequency_support();
+    //uint8_t freq_support = get_frequency_support();
 
     // Hold chip-select high
     _chip_select = 1;
@@ -690,6 +690,7 @@ void SX126X_LoRaRadio::read_fifo(uint8_t *buffer, uint8_t size, uint8_t offset)
     _chip_select = 1;
 }
 
+/*
 uint8_t SX126X_LoRaRadio::get_device_variant(void)
 {
     uint16_t val = 0;
@@ -702,8 +703,9 @@ uint8_t SX126X_LoRaRadio::get_device_variant(void)
     } else {
         return SX1261;
     }
-}
+}*/
 
+/*
 uint8_t SX126X_LoRaRadio::get_frequency_support(void)
 {
     uint16_t val = 0;
@@ -725,6 +727,7 @@ uint8_t SX126X_LoRaRadio::get_frequency_support(void)
         return (MATCHING_FREQ_868);
     }
 }
+*/
 
 uint8_t SX126X_LoRaRadio::get_fsk_bw_reg_val(uint32_t bandwidth)
 {
@@ -1050,6 +1053,7 @@ void SX126X_LoRaRadio::set_tx_power(int8_t power)
 {
     uint8_t buf[2];
 
+    /*
     if (get_device_variant() == SX1261) {
         if (power >= 14) {
             set_pa_config(0x04, 0x00, 0x01, 0x01);
@@ -1062,7 +1066,7 @@ void SX126X_LoRaRadio::set_tx_power(int8_t power)
             power = -3;
         }
         write_to_register(REG_OCP, 0x18); // current max is 80 mA for the whole device
-    } else {
+    } else */{
         // sx1262 or sx1268
         if (power > 22) {
             power = 22;

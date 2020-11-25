@@ -46,24 +46,25 @@ typedef enum
     D13 = 13,
     D16 = 16,
     D19 = 19,
-    //D20 = 20, SWDCK
-    //D21 = 21, SWDIO
+    D20 = 20, //SWDCK
+    D21 = 21, //SWDIO
+    D24 = 24, //LoRa EN
 	D25 = 25,
 	D27 = 27,
 	D29 = 29,
 	D31 = 31,
 	D32 = 32,
 	D33 = 33,
-	//D36 = 36, RADIO NSS 
-	//D38 = 38, RADIO_MOSI
-	//D39 = 39, RADIO_BUSY
-	//D40 = 40, RADIO_DIO1
+	D36 = 36, //RADIO NSS 
+	D38 = 38, //RADIO_MOSI
+	D39 = 39, //RADIO_BUSY
+	D40 = 40, //RADIO_DIO1
 	D41 = 41,
-	//D42 = 42, RADIO_CLK
-	//D43 = 43, RADIO_MISO
-	//D44 = 44, RADIO_nRESET
+	D42 = 42, //RADIO_CLK
+	D43 = 43, //RADIO_MISO
+	D44 = 44, //RADIO_nRESET
 	D45 = 45,
-	//D47 = 47, RADIO_DIO3
+	D47 = 47, //RADIO_DIO3
 
     // Analog naming
     A0 = D33,
@@ -74,13 +75,14 @@ typedef enum
     A5 = D31,
 
     //BUTTONs
-    SW0 = AM_BSP_GPIO_BUTTON0,
+    SW0 = AM_BSP_GPIO_BUTTON1,
     
     // LEDs
     //LED_BLUE = AM_BSP_GPIO_LED0,
 
     // mbed original LED naming
-    LED1 = AM_BSP_GPIO_LED0,
+    LED0 = AM_BSP_GPIO_LED4,
+    LED1 = AM_BSP_GPIO_LED4,
 
     // I2C
     I2C_SCL = AM_BSP_QWIIC_I2C_SCL_PIN,

@@ -59,8 +59,8 @@ public:
                      PinName reset,
                      PinName dio1,
                      PinName busy,
-                     PinName freq_select,
-                     PinName device_select,
+                     //PinName freq_select,
+                     //PinName device_select,
                      PinName crystal_select,
                      PinName ant_switch);
 
@@ -307,10 +307,10 @@ private:
     mbed::DigitalIn _busy;
 
     // module frequency selection
-    mbed::AnalogIn _freq_select;
+   // mbed::AnalogIn _freq_select;
 
     // module device variant selection
-    mbed::AnalogIn _dev_select;
+   // mbed::AnalogIn _dev_select;
 
     // module TCXO/XTAL control
     mbed::DigitalIn _crystal_select;
