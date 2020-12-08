@@ -6876,6 +6876,9 @@
 	 "MACAWBLUE_FEATHER": {
         "inherits": ["AMA3B1KK"]
     },
+	 "LoRa_THING_PLUS_expLoRaBLE": {
+        "inherits": ["AMA3B1KK"]
+    },
 
     "__build_tools_metadata__": {
         "version": "1",
